@@ -596,6 +596,7 @@ class SlurmSpawner(UserEnvMixin,BatchSpawnerRegexStates):
 #SBATCH --export={{keepvars}}
 #SBATCH --get-user-env=L
 {% if partition  %}#SBATCH --partition={{partition}}
+{% endif %}{% if cluster    %}#SBATCH --cluster={{cluster}}
 {% endif %}{% if runtime    %}#SBATCH --time={{runtime}}
 {% endif %}{% if memory     %}#SBATCH --mem={{memory}}
 {% endif %}{% if gres       %}#SBATCH --gres={{gres}}
